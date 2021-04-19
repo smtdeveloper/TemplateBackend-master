@@ -20,11 +20,11 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
-            if (product.CategoryId == 1)
-            {
+            //if (product.CategoryId == 1)
+            //{
 
-                return new ErrorResult("Bu Kategoride  Ürün Eklenmez");
-            }
+            //    return new ErrorResult("Bu Kategoride  Ürün Eklenmez");
+            //}
 
             _produckDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
