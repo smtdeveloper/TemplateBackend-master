@@ -1,12 +1,12 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
-
+using Business.Abstract;
 using Business.CCS;
-
+using Business.Concrete;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
-
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -20,7 +20,14 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
 
-           
+            builder.RegisterType<EfProduckDal>().As<IProduckDal>();
+            builder.RegisterType<EfBasketDal>().As<IBasketDal>();
+
+
+            builder.RegisterType<ProductManager>().As<IProductService>();
+            builder.RegisterType<BasketManager>().As<IBasketService>();
+
+
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
