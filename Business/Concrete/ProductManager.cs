@@ -11,10 +11,10 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProduckDal _produckDal;
-        public ProductManager(IProduckDal produckDal)
+        IProductDal _productDal;
+        public ProductManager(IProductDal produckDal)
         {
-            _produckDal = produckDal;
+            _productDal = produckDal;
         }
 
 
@@ -26,18 +26,18 @@ namespace Business.Concrete
             //    return new ErrorResult("Bu Kategoride  Ürün Eklenmez");
             //}
 
-            _produckDal.Add(product);
+            _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
         }
 
         public IDataResult<List<Product>> GetAll()
         {
-            return new SuccessDataResult<List<Product>>(_produckDal.GetAll(),Messages.ProductsListed);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);
         }
 
         public IDataResult<List<Product>> GetAllByCategory(int categoryId)
         {
-            return new SuccessDataResult<List<Product>>(_produckDal.GetAll(p => p.CategoryId == categoryId), Messages.ProductsListed);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == categoryId), Messages.ProductsListed);
         }
     }
 }

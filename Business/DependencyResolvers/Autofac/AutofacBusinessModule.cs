@@ -20,7 +20,7 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
 
-            builder.RegisterType<EfProduckDal>().As<IProduckDal>();
+            builder.RegisterType<EfProductDal>().As<IProductDal>();
             builder.RegisterType<EfBasketDal>().As<IBasketDal>();
 
 

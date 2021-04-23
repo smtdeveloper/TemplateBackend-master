@@ -10,16 +10,16 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            EfProduckDal efProduckDal = new EfProduckDal();
+            EfProductDal efProduckDal = new EfProductDal();
 
             Product produck = new Product
             {
                 CategoryId = 1,
                 BrandId = 1,
-                Name = "Su",
-                Price = 1,
+                Name = "Kahve",
+                Price = 3,
                 CreateDate = DateTime.Now,
-                Code = "WTR01",
+                Code = "SMT",
                 Active = true
 
             };

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-   public class EfProduckDal : EfEntityRepositoryBase<Product, NorthwindContext>, IProduckDal
+   public class EfProductDal : EfEntityRepositoryBase<Product, NorthwindContext>, IProductDal
     {
 
     }
